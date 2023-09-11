@@ -48,7 +48,7 @@ jobs:
           rpm -Uvh epel-release-latest-7.noarch.rpm
           yum install -y make automake gcc gcc-c++ kernel-devel libtool \
           hdf5-devel cmake git boost-devel boost-date-time boost-system \
-          boost-filesystem boost-thread boost-chrono boost-serialization \
+          boost-filesystem boost-thread boost-chrono boost-serialization glog-devel \
           log4cpp-devel gnuradio-devel gr-osmosdr-devel blas-devel lapack-devel \
           armadillo-devel openssl-devel libpcap-devel python-mako python-six pugixml-devel ninja-build libunwind-devel
       - name: configure
