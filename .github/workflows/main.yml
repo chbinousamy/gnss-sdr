@@ -36,6 +36,30 @@ jobs:
       - name: default position_test
         run: cd build && cmake -DENABLE_SYSTEM_TESTING_EXTRA=ON .. && ninja && ../install/position_test
 
+  build-centos:
+    runs-on: ubuntu-latest
+    container: 'centos:7.6.1810'
+    steps:
+      - uses: actions/checkout@v3
+      - name: install dependencies
+        run: |
+          sudo yum install wget
+          wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+          sudo rpm -Uvh epel-release-latest-7.noarch.rpm
+          sudo yum install make automake gcc gcc-c++ kernel-devel libtool \
+          hdf5-devel cmake git boost-devel boost-date-time boost-system \
+          boost-filesystem boost-thread boost-chrono boost-serialization \
+          log4cpp-devel gnuradio-devel gr-osmosdr-devel blas-devel lapack-devel \
+          armadillo-devel openssl-devel libpcap-devel python-mako python-six pugixml-devel
+      - name: configure
+        run: cd build && cmake -GNinja ..
+      - name: build
+        run: cd build && ninja
+      - name: check
+        run: cd build && ninja check && ../install/volk_gnsssdr_profile && ../install/run_tests
+      - name: default position_test
+        run: cd build && cmake -DENABLE_SYSTEM_TESTING_EXTRA=ON .. && ninja && ../install/position_test
+
   build-macos:
     runs-on: macos-latest
     steps:
