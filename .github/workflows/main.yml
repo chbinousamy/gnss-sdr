@@ -50,7 +50,7 @@ jobs:
           hdf5-devel cmake git boost-devel boost-date-time boost-system \
           boost-filesystem boost-thread boost-chrono boost-serialization \
           log4cpp-devel gnuradio-devel gr-osmosdr-devel blas-devel lapack-devel \
-          armadillo-devel openssl-devel libpcap-devel python-mako python-six pugixml-devel ninja-build
+          armadillo-devel openssl-devel libpcap-devel python-mako python-six pugixml-devel ninja-build libunwind-devel
       - name: configure
         run: cd build && cmake -GNinja ..
       - name: build
