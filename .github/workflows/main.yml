@@ -47,7 +47,7 @@ jobs:
           wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
           rpm -Uvh epel-release-latest-7.noarch.rpm
           yum install -y libunwind-devel make automake gcc gcc-c++ kernel-devel libtool \
-          hdf5-devel cmake ninja-build git boost-devel boost-date-time boost-system \
+          hdf5-devel cmake ninja-build git libgflags-devel boost-devel boost-date-time boost-system \
           boost-filesystem boost-thread boost-chrono boost-serialization glog-devel \
           log4cpp-devel gnuradio-devel gr-osmosdr-devel blas-devel lapack-devel \
           armadillo-devel openssl-devel libpcap-devel python-mako python-six pugixml-devel
